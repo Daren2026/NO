@@ -73,5 +73,11 @@ CANSparkMax TopMotor = new CANSparkMax (Constants.DrivetrainConstants.TopMotorCA
 //   @Override
 //   public void simulationPeriodic() {
 //     // This method will be called once per scheduler run during simulation
+  public void IntakewithJoystickCommand(double Speed1, double Speed2) {
+    
+
+    BottomMotor.set(Speed1);
+    TopMotor.set(Speed2);
+  }
   }
  

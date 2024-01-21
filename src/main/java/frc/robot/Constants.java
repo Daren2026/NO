@@ -22,7 +22,7 @@ public final class Constants {
     public static final int TopMotorCANID = 57;
     public static final int BottomMotorCANID = 2;
     
-  public static class EncoderConstants {
+  public static class XboxControllerConstants {
     
 
   }

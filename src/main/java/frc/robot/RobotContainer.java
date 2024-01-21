@@ -9,6 +9,7 @@ import frc.robot.commands.Autos;
 import frc.robot.commands.IntakewithJoystickCommand;
 import frc.robot.subsystems.IntakeSubsystem;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
@@ -26,7 +27,7 @@ public class RobotContainer {
   // Replace with CommandPS4Controller or CommandJoystick if needed
   private final IntakewithJoystickCommand DrivewithJoystickCommand = new IntakewithJoystickCommand(drivetrainSubsystem);
 
-      public static Joystick joystick = new Joystick(0);
+      public static XboxController joy1 = new XboxController(0);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {

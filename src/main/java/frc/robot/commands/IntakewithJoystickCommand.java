@@ -40,8 +40,8 @@ public class IntakewithJoystickCommand extends Command {
   public void execute() {
     
     if (RobotContainer.joy1.getAButton()) {
-      BottomMotor = 0.7;
-      TopMotor = -0.7;
+      BottomMotor = 0.1;
+      TopMotor = -0.1;
     } else {
       BottomMotor = 0;
       TopMotor = 0;
