@@ -10,16 +10,16 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
+import com.ctre.phoenix6.hardware.TalonFX;
 import com.revrobotics.CANSparkLowLevel;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
 
 
-public class IntakeSubsystem extends SubsystemBase {
+public class ShooterSubsystem extends SubsystemBase {
 
-  /** Creates a new ExampleSubsystem. */
-  CANSparkMax BottomMotor = new CANSparkMax(Constants.IntakeConstants.BottomMotorCANID, CANSparkLowLevel.MotorType.kBrushless);
-CANSparkMax TopMotor = new CANSparkMax (Constants.IntakeConstants.TopMotorCANID, CANSparkLowLevel.MotorType.kBrushless);
+   private TalonFX TalonFX1 = new TalonFX(11);
+   private TalonFX TalonFX2 = new TalonFX(43);
 
   
 
@@ -34,12 +34,10 @@ CANSparkMax TopMotor = new CANSparkMax (Constants.IntakeConstants.TopMotorCANID,
 
 
 //DifferentialDrive differentialDrive = new DifferentialDrive(leftMotorControllerGroup, RightMotorControllerGroup);
-  public IntakeSubsystem() {
-  TopMotor.restoreFactoryDefaults();
-  BottomMotor.restoreFactoryDefaults();
+  public ShooterSubsystem() {
+  
 
-  //PivotPoint.restoreFactoryDefaults();
-  //LeftBackMotor.follow(LeftFrontMotor);
+ 
  
 
 
@@ -77,11 +75,16 @@ CANSparkMax TopMotor = new CANSparkMax (Constants.IntakeConstants.TopMotorCANID,
 //   @Override
 //   public void simulationPeriodic() {
 //     // This method will be called once per scheduler run during simulation
-  public void IntakewithJoystickCommand(double Speed1, double Speed2) {
+  public void IntakewithJoystickCommand(double Speed3, double Speed4) {
     
 
-    BottomMotor.set(Speed1);
-    TopMotor.set(Speed2);
+    TalonFX1.set(Speed3);
+    TalonFX2.set(Speed4);
   }
+
+public void ShooterwithJoystickCommand(double bottomMotor, double topMotor) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'ShooterwithJoystickCommand'");
+}
   }
  
