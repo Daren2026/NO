@@ -7,12 +7,14 @@ package frc.robot.commands;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.IntakeSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
-
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.XboxController;
 /** An example command that uses an example subsystem. */
 public class IntakewithJoystickCommand extends Command {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final IntakeSubsystem DrivetrainSubsystem;
-
+    double BottomMotor = 0;
+    double TopMotor = 0;
   
   /**
    * Creates a new ExampleCommand.
@@ -29,14 +31,23 @@ public class IntakewithJoystickCommand extends Command {
   @Override
   public void initialize() {
     System.out.println("Starting Joystick drive command");
-  }
+    BottomMotor = 0;
+    TopMotor = 0;
+  } 
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
     
-    double forwardspeed = RobotContainer.joystick.getX();
-    double Turningspeed = RobotContainer.joystick.getY();
+    if (RobotContainer.joy1.getAButton()) {
+      BottomMotor = 0.7;
+      TopMotor = -0.7;
+    } else {
+      BottomMotor = 0;
+      TopMotor = 0;
+    }
+      DrivetrainSubsystem.IntakewithJoystickCommand(BottomMotor, TopMotor);
+
   }
 
   // Called once the command ends or is interrupted.
